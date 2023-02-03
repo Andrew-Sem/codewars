@@ -17,3 +17,17 @@
 
 // Your task is to implement a function that would take the morse code as input and return a
 // decoded human-readable string.
+
+import { MORSE_CODE } from "./preloaded";
+export function decodeMorse(morseCode: string): string {
+  return morseCode
+    .split("   ")
+    .map((word) =>
+      word
+        .split(" ")
+        .map((sym) => MORSE_CODE[sym])
+        .join("")
+    )
+    .join(" ")
+    .trim();
+}
